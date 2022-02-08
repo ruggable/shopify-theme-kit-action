@@ -7,9 +7,13 @@ inputs:
   shopify-flags:
     description: Flags
     default: ""
+  working-directory:
+    description: Working directory
+    default: ""
 runs:
   using: docker
   image: Dockerfile
+  working-directory: ${{ inputs.working-directory }}
   args:
     - ${{ inputs.shopify-command }}
     - ${{ inputs.shopify-flags }}
